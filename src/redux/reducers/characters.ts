@@ -1,4 +1,4 @@
-import { CharacterModule } from "namespaces/character";
+import { CharacterModule } from "types/character";
 import { initialState } from "redux/state/character";
 
 const { LOAD_CHARACTERS, START_LOADING, STOP_LOADING } =
