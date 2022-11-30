@@ -1,9 +1,7 @@
 import { axiosFetchCharacters } from "api/characters/axiosFetchCharacters";
-import { fetchCharacters } from "api/characters/fetchCharacters";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { loadCharacters } from "redux/actions/characters";
+import { loadCharacters } from "./actionCreators";
 import { CharacterModule } from "types/character";
-import { mockOrApiResponse } from "utils/mockOrAPIResponse";
 
 const { LOAD_CHARACTERS } = CharacterModule.Redux.Actions;
 

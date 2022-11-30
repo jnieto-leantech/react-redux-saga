@@ -1,5 +1,5 @@
 import { CharacterModule } from "types/character";
-import { initialState } from "redux/state/character";
+import { initialState } from "./state";
 
 const { LOAD_CHARACTERS, START_LOADING, STOP_LOADING } =
   CharacterModule.Redux.Actions;
