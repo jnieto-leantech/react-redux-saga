@@ -42,13 +42,15 @@ export namespace CharacterModule {
     export type State = {
       characters: CharacterModule.Character[];
       loading: boolean;
+      error?: APIModule.Error;
     };
 
     export enum Actions {
       START_LOADING = "START_LOADING",
       STOP_LOADING = "STOP_LOADING",
       LOAD_CHARACTERS = "LOAD_CHARACTERS",
-      LOAD_ERROR = "LOAD_ERROR",
+      ON_LOAD_CHARACTER_SUCCESS = "ON_LOAD_CHARACTER_SUCCESS",
+      ON_LOAD_CHARACTER_ERROR = "ON_LOAD_CHARACTER_ERROR",
     }
 
     export type StartLoadingAction = {
@@ -64,14 +66,21 @@ export namespace CharacterModule {
       payload: Character[];
     };
 
-    export type ErrorAction = {
-      type: Actions.LOAD_ERROR;
+    export type OnLoadCharacterSuccessAction = {
+      type: Actions.ON_LOAD_CHARACTER_SUCCESS;
+      payload: Character[];
+    };
+
+    export type LoadCharacterErrorAction = {
+      type: Actions.ON_LOAD_CHARACTER_ERROR;
       payload: APIModule.Error;
     };
 
     export type Action =
       | StartLoadingAction
       | StopLoadingAction
-      | LoadCharactersAction;
+      | OnLoadCharacterSuccessAction
+      | LoadCharactersAction
+      | LoadCharacterErrorAction;
   }
 }

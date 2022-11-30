@@ -25,7 +25,7 @@ export const fetchCharacters = async ({
   } catch (err) {
     errors.push({
       message: "Unexpected Error",
-      state: "error",
+      code: -1,
     });
   }
 

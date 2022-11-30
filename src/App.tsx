@@ -1,6 +1,7 @@
 import "./App.css";
 import { createStore } from "redux/store";
 import { Provider } from "react-redux";
+import { Home } from "pages/Home";
 
 function App() {
   const reduxStore = createStore();
@@ -9,7 +10,7 @@ function App() {
     <Provider store={reduxStore}>
       <div className="App">
         <header className="App-header">
-          <div>great!</div>
+          <Home />
         </header>
       </div>
     </Provider>
