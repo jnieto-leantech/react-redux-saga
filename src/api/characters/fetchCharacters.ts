@@ -1,10 +1,14 @@
 import { APIModule } from "types/api";
+import { CharacterModule } from "types/character";
 
 export const fetchCharacters = async ({
   mockOrApiResponse,
 }: {
   mockOrApiResponse: Function;
-}): Promise<{ errors: APIModule.Error[]; characters: any }> => {
+}): Promise<{
+  errors: APIModule.Error[];
+  characters: CharacterModule.Character[];
+}> => {
   let errors: APIModule.Error[] = [];
   let characters = [];
 

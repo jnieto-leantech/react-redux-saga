@@ -1,15 +1,23 @@
-import { takeEvery } from "redux-saga/effects";
+import { axiosFetchCharacters } from "api/characters/axiosFetchCharacters";
+import { fetchCharacters } from "api/characters/fetchCharacters";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { loadCharacters } from "redux/actions/characters";
 import { CharacterModule } from "types/character";
+import { mockOrApiResponse } from "utils/mockOrAPIResponse";
 
 const { LOAD_CHARACTERS } = CharacterModule.Redux.Actions;
 
-export function* characterSaga() {
-  console.log("hello?");
-  yield "hello?";
+function* workerLoadCharacters() {
+  try {
+    const response: CharacterModule.Character[] = yield call(
+      axiosFetchCharacters
+    );
+    yield put(loadCharacters(response));
+  } catch (e) {
+    yield put;
+  }
 }
 
-export function* workerLoadCharacters() {}
-
-export function* watcherLoadCharacters() {
+export function* watchLoadCharacters() {
   yield takeEvery(LOAD_CHARACTERS, workerLoadCharacters);
 }

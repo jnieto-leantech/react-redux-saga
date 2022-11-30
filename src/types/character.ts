@@ -1,3 +1,5 @@
+import { APIModule } from "./api";
+
 export namespace CharacterModule {
   export interface Character {
     id: number;
@@ -46,6 +48,7 @@ export namespace CharacterModule {
       START_LOADING = "START_LOADING",
       STOP_LOADING = "STOP_LOADING",
       LOAD_CHARACTERS = "LOAD_CHARACTERS",
+      LOAD_ERROR = "LOAD_ERROR",
     }
 
     export type StartLoadingAction = {
@@ -59,6 +62,11 @@ export namespace CharacterModule {
     export type LoadCharactersAction = {
       type: Actions.LOAD_CHARACTERS;
       payload: Character[];
+    };
+
+    export type ErrorAction = {
+      type: Actions.LOAD_ERROR;
+      payload: APIModule.Error;
     };
 
     export type Action =
